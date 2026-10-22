@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Kia ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: Georgia, serif;
+    color: white;
+    background: radial-gradient(
+        circle at top,
+        #65245b,
+        #210d2d 55%,
+        #080713
+    );
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.2; }
+    to { opacity: 1; }
+}
+
+.card {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px 24px;
+    text-align: center;
+    border: 1px solid #ffadd755;
+    border-radius: 25px;
+    background: #35122fbb;
+    box-shadow: 0 0 40px #ff3d9a33;
+    backdrop-filter: blur(8px);
+}
+
+.subtitle {
+    color: #ffadd7;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+h1 {
+    font-size: 34px;
+    font-weight: normal;
+}
+
+.heart {
+    font-size: 80px;
+    color: #ff5da9;
+    text-shadow: 0 0 25px #ff2c91;
+    animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+    50% { transform: scale(1.2); }
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #f9ddec;
+}
+
+.signature {
+    color: #ffadd7;
+    font-style: italic;
+}
+
+button {
+    margin-top: 15px;
+    padding: 13px 22px;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 15px;
+    background: linear-gradient(90deg, #ff5da9, #c65cff);
+    cursor: pointer;
+}
+
+#secret {
+    display: none;
+    margin-top: 20px;
+    line-height: 1.8;
+    color: #ffc5e3;
+}
+
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    color: #ff78bb;
+    animation: floatUp 7s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(30deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<main class="card">
+    <div class="subtitle">Pesan dari Baskara</div>
+
+    <div class="heart">♥</div>
+
+    <h1>Untuk Kia malaikat kesayanganku</h1>
+
+    <p>
+        Di antara banyaknya orang di dunia ini,<br>
+        hanya kamu yang bisa membuat hatiku luluh.<br>
+        kamu orang yang menerangi hidupku,<br>
+    </p>
+
+    <p class="signature">
+        "Kehadiranmu membuat hal sederhana
+        terasa luar biasa." ♡
+    </p>
+
+    <button onclick="showMessage()">
+        Buka Pesan Rahasia 💌
+    </button>
+
+    <div id="secret">
+     Kamu adalah alasanku untuk tersenyum, 
+      bahkan pada hari yang melelahkan.
+      Semoga kamu selalu bahagia dengankku, 
+      aku sangat menyayangimu, 
+      terimakasih telah menjadi kekasihku.❤️
+    </div>
+</main>
+
+<script>
+const stars = document.getElementById("stars");
+
+for (let i = 0; i < 100; i++) {
+    const star = document.createElement("div");
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.animationDelay = Math.random() * 3 + "s";
+    stars.appendChild(star);
+}
+
+function showMessage() {
+    const secret = document.getElementById("secret");
+
+    secret.style.display =
+        secret.style.display === "block"
+        ? "none"
+        : "block";
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+
+    heart.className = "floating-heart";
+    heart.textContent = Math.random() > 0.5 ? "♥" : "♡";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = 15 + Math.random() * 25 + "px";
+    heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 10000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
